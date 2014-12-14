@@ -4,6 +4,7 @@ MAINTAINER Stephen Tudor <smt@smt.io>
 
 # Install some development tools
 RUN apt-get -qq update && apt-get -qq install \
+    fish \
     emacs \
     vim-nox \
     tmux \
@@ -12,6 +13,9 @@ RUN apt-get -qq update && apt-get -qq install \
     curl \
     unzip \
     build-essential
+
+# Set TERM so that I can have nice things
+ENV TERM xterm-256color
 
 # Install dotfiles
 ADD conf/.tmux.conf /root/.tmux.conf
